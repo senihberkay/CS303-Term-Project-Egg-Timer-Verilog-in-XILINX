@@ -1,1 +1,7 @@
 # CS303-Term-Project-Egg-Timer-Verilog-in-XILINX-
+
+In this project, the aim is to design an egg timer with a down counter and controller. The down counter has the inputs clock, reset, load and count. The user will give the input to the down counter to enable the counter to count down from the given input. When the reset button is pressed, it is expected to see the preset value on display, which is the value given to the counter initially by the user. The down counter might go up to 99:59.
+
+In downcounter.v, we have designed a counter counting down like a clock, for instance when the value is 90.00 it downs to 89.59 just as a clock. It first decrements the ones digit of the seconds until it reaches 0, and then it loads the ones digit of the seconds with 9, after it decreases the tens digit of the seconds until it reaches 0. When the tens digits of the seconds reaches 0, the down counter starts to decrement the ones digit of minutes while loading tens digit of seconds with 5 and ones digit of seconds with 9. Finally when the ones digit of the minutes reaches 0, the down counter starts to decrement the tens digit of the minutes while loading tens digit of seconds with 5 and ones digit of seconds with 9, again.
+
+In controller.v file, we have created a register called counterdown and assigned the start output to counterdown. When we start the circuit and press the preset button, the number we set in the simple DIP switch allows us to see the seven segment on the display. Also, we have made it stop when the counter is 00.00.
